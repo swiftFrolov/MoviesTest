@@ -18,7 +18,7 @@ class HighestRatedMoviesService: BasicDiscoverMoviesService {
                 completionHandler(nil, error)
             case .success(let data):
                 guard let movies = self.decodedMoviesFromData(data: data) else {
-                    completionHandler(nil, NetworkClient.NetworkError.unknown)
+                    completionHandler(nil, NetworkError.unknown)
                     return
                 }
                 completionHandler(movies, nil)
