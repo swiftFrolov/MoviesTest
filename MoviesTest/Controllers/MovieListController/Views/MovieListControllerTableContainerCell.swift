@@ -15,9 +15,9 @@ class MovieListControllerTableContrainerCell: UITableViewCell {
         return view
     }()
     
-    var listType: UILabel = {
+    var listTypeLabel: UILabel = {
         let label = UILabel()
-        label.text = "List Type"
+        label.font = UIFont.boldSystemFont(ofSize: 24)
         return label
     }()
     
@@ -31,11 +31,18 @@ class MovieListControllerTableContrainerCell: UITableViewCell {
         return collectionView
     }()
     
+    var listType: MovieListType
     var dataSource: MovieListControllerTableContainerCellCollectionDataSource!
+    var movies = Dynamic<[Movie]>([])
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    init(style: UITableViewCellStyle, reuseIdentifier: String?, movies: Dynamic<[Movie]>, forListType listType: MovieListType) {
+        self.movies = movies
+        self.listType = listType
+        listTypeLabel.text = listType.name
+        
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        dataSource = MovieListControllerTableContainerCellCollectionDataSource(withCollectionView: collectionView)
+        
+        dataSource = MovieListControllerTableContainerCellCollectionDataSource(withCollectionView: collectionView, movies: movies)
         
         backgroundColor = .clear
         selectionStyle = .none
@@ -43,13 +50,13 @@ class MovieListControllerTableContrainerCell: UITableViewCell {
         addSubview(separatorView)
         separatorView.setAnchor(top: topAnchor, paddingTop: 0, left: leftAnchor, paddingLeft: 17, right: rightAnchor, paddingRight: 17, bottom: nil, paddingBottom: 0, width: 0, height: 2)
         
-        addSubview(listType)
-        listType.setAnchor(top: separatorView.bottomAnchor, paddingTop: 16, left: leftAnchor, paddingLeft: 17, right: rightAnchor, paddingRight: 17, bottom: nil, paddingBottom: 0, width: 0, height: 29)
+        addSubview(listTypeLabel)
+        listTypeLabel.setAnchor(top: separatorView.bottomAnchor, paddingTop: 16, left: leftAnchor, paddingLeft: 17, right: rightAnchor, paddingRight: 17, bottom: nil, paddingBottom: 0, width: 0, height: 29)
         
         addSubview(collectionView)
         collectionView.delegate = dataSource
         collectionView.dataSource = dataSource
-        collectionView.setAnchor(top: listType.bottomAnchor, paddingTop: 1, left: leftAnchor, paddingLeft: 0, right: rightAnchor, paddingRight: 0, bottom: bottomAnchor, paddingBottom: 14, width: 0, height: 0)
+        collectionView.setAnchor(top: listTypeLabel.bottomAnchor, paddingTop: 1, left: leftAnchor, paddingLeft: 0, right: rightAnchor, paddingRight: 0, bottom: bottomAnchor, paddingBottom: 14, width: 0, height: 0)
     }
     
     required init?(coder aDecoder: NSCoder) {

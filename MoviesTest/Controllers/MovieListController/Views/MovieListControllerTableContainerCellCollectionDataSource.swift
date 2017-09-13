@@ -9,9 +9,19 @@
 import UIKit
 
 class MovieListControllerTableContainerCellCollectionDataSource: NSObject, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    var movies = [Movie]()
     
-    init(withCollectionView collectionView: UICollectionView) {
+    init(withCollectionView collectionView: UICollectionView, movies: Dynamic<[Movie]>) {
+        super.init()
         collectionView.register(MovieListControllerTableContainerCellCollectionMovieCell.self, forCellWithReuseIdentifier: "MovieListControllerTableContainerCellCollectionMovieCell")
+        
+        movies.bindAndFire { [weak self] movieArray in
+            guard let strongSelf = self else { return }
+            strongSelf.movies = movieArray
+            DispatchQueue.main.async {
+                collectionView.reloadData()
+            }
+        }
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -27,16 +37,18 @@ class MovieListControllerTableContainerCellCollectionDataSource: NSObject, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return movies.count
     }
-    
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width - 34, height: collectionView.frame.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieListControllerTableContainerCellCollectionMovieCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieListControllerTableContainerCellCollectionMovieCell", for: indexPath) as! MovieListControllerTableContainerCellCollectionMovieCell
+        let movie = movies[indexPath.row]
+        let viewModel = MovieListControllerTableContainerCellCollectionMovieCellViewModel(withMovieModel: movie)
+        cell.configure(withViewModel: viewModel)
         return cell
     }
 }
