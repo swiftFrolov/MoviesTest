@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3921997C1F691DFB006C1344 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3921997B1F691DFB006C1344 /* AppDelegate.swift */; };
-		3921997E1F691DFB006C1344 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3921997D1F691DFB006C1344 /* ViewController.swift */; };
-		392199811F691DFB006C1344 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3921997F1F691DFB006C1344 /* Main.storyboard */; };
 		392199831F691DFB006C1344 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 392199821F691DFB006C1344 /* Assets.xcassets */; };
 		392199861F691DFB006C1344 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 392199841F691DFB006C1344 /* LaunchScreen.storyboard */; };
 		392199911F691DFB006C1344 /* MoviesTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392199901F691DFB006C1344 /* MoviesTestTests.swift */; };
@@ -28,8 +26,6 @@
 /* Begin PBXFileReference section */
 		392199781F691DFB006C1344 /* MoviesTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3921997B1F691DFB006C1344 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3921997D1F691DFB006C1344 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		392199801F691DFB006C1344 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		392199821F691DFB006C1344 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		392199851F691DFB006C1344 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		392199871F691DFB006C1344 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,8 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				3921997B1F691DFB006C1344 /* AppDelegate.swift */,
-				3921997D1F691DFB006C1344 /* ViewController.swift */,
-				3921997F1F691DFB006C1344 /* Main.storyboard */,
 				392199821F691DFB006C1344 /* Assets.xcassets */,
 				392199841F691DFB006C1344 /* LaunchScreen.storyboard */,
 				392199871F691DFB006C1344 /* Info.plist */,
@@ -181,7 +175,6 @@
 			files = (
 				392199861F691DFB006C1344 /* LaunchScreen.storyboard in Resources */,
 				392199831F691DFB006C1344 /* Assets.xcassets in Resources */,
-				392199811F691DFB006C1344 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,7 +192,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3921997E1F691DFB006C1344 /* ViewController.swift in Sources */,
 				3921997C1F691DFB006C1344 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,14 +215,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3921997F1F691DFB006C1344 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				392199801F691DFB006C1344 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		392199841F691DFB006C1344 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -360,7 +344,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = frolapps.MoviesTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -375,7 +359,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = frolapps.MoviesTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
