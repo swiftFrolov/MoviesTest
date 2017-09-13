@@ -21,7 +21,7 @@ struct MovieListControllerTableContainerCellCollectionMovieCellViewModel {
     
     var posterURL: URL? {
         guard let posterURL = model.posterURL else { return nil }
-        let fullPath = "https://image.tmdb.org/t/p/w370_and_h556_bestv2/" + posterURL
+        let fullPath = "https://image.tmdb.org/t/p/w780/" + posterURL
         return URL(string: fullPath)
     }
 }
