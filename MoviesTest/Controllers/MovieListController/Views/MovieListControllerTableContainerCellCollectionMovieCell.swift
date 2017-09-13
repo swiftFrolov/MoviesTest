@@ -18,7 +18,7 @@ class MovieListControllerTableContainerCellCollectionMovieCell: UICollectionView
     
     var movieImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 6
         return imageView

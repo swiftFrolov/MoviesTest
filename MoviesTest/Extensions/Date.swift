@@ -17,6 +17,7 @@ extension Date {
     
     var fullString: String {
         let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
         formatter.timeZone = TimeZone(abbreviation: "GTM")
         return formatter.string(from: self)
     }
